@@ -1,0 +1,41 @@
+def special_reverse(string):
+
+    chars = []
+
+    special_positions = {}
+
+    for index, char in enumerate(string):
+
+        if char.isalpha():
+
+            chars.append(char)
+
+        else:
+
+            special_positions[index] = char
+
+    chars.reverse()
+
+    result = []
+
+    char_index = 0
+
+    for index in range(len(string)):
+
+        if index in special_positions:
+
+            result.append(special_positions[index])
+
+        else:
+
+            result.append(chars[char_index])
+
+            char_index += 1
+
+    return ''.join(result)
+
+input_string = input()
+
+output = special_reverse(input_string)
+
+print(output)
